@@ -1,0 +1,4 @@
+name = URL Redirect
+description = Module for redirect olds urls to new
+package = Modulos Customs
+core = 7.x
