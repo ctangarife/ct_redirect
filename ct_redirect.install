@@ -10,45 +10,49 @@
  */
 function ct_redirect_schema() {
   $schema = array(
-    'ct_url_redirect'  => array(
-      'fields'  => array(
-        'id' => array(
-        'description' => 'Primary identifier for id recurrence.',
-        'type' => 'serial',
-        'unsigned' => TRUE,
-        'not null'  => TRUE
-        ),
-        'ct_url_org'  => array(
-          'type'      => 'varchar',
-          'length'    => 255,
-          'not null'  => FALSE
-        ),
-        'ct_url_dest' => array(
-          'type' => 'varchar',
-          'length'    => 255,
-          'not null'  => TRUE
-        ),
-        'created' => array(
-        'mysql_type' => 'DATETIME',
-        'not null' => TRUE,
-        ),
-        'modificate' => array(
-          'mysql_type' => 'DATETIME',
-          'not null' => FALSE,
-        ),
-      ),
-      'indexes' => array(
-        'id'        => array('id'),
-      ),
-      'primary key' => array('id')
-    )
+      'ct_url_redirect'  => array(
+          'fields'  => array(
+              'id' => array(
+                  'description' => 'Primary identifier for id recurrence.',
+                  'type' => 'serial',
+                  'unsigned' => TRUE,
+                  'not null'  => TRUE
+              ),
+              'ct_url_org'  => array(
+                  'type'      => 'varchar',
+                  'length'    => 255,
+                  'not null'  => FALSE
+              ),
+              'ct_url_dest' => array(
+                  'type' => 'varchar',
+                  'length'    => 255,
+                  'not null'  => TRUE
+              ),
+              'ct_url_dest' => array(
+                  'type' => 'varchar',
+                  'length'    => 255,
+                  'not null'  => TRUE
+              ),
+              'created' => array(
+                  'mysql_type' => 'DATETIME',
+                  'not null' => TRUE,
+              ),
+              'modificate' => array(
+                  'mysql_type' => 'DATETIME',
+                  'not null' => FALSE,
+              ),
+          ),
+          'indexes' => array(
+              'id' => array('id'),
+          ),
+          'primary key' => array('id')
+      )
   );
-
-  return $schema;
+    return $schema;
 }
 /**
  * Implements hook_uninstall().
- */
+ */s
 function ct_redirect_uninstall() {
     drupal_uninstall_schema('ct_url_redirect');
 }
