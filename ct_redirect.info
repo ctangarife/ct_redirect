@@ -1,4 +1,5 @@
 name = URL Redirect
 description = Module for redirect olds urls to new
-package = Modulos Customs
+package = Other
+configure = admin/config/search/ct-config-path
 core = 7.x

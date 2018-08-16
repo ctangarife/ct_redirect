@@ -8,7 +8,7 @@
  * Admin form builder
  */
  
- function ct_redirect_admin_form(&$form,&$form_state){
+ function ct_redirect_admin_form($form,$form_state){
      $form = array(
          'ct_path_origin' => array(
              '#type'   => 'textfield',

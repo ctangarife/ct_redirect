@@ -52,7 +52,7 @@ function ct_redirect_schema() {
 }
 /**
  * Implements hook_uninstall().
- */s
+ */
 function ct_redirect_uninstall() {
     drupal_uninstall_schema('ct_url_redirect');
 }

@@ -1,20 +1,43 @@
 <?php
 
-//función para redirección
+
+function ct_redirect_menu(){
+    return array(
+        'admin/config/search/ct-config-path' => array(
+            'title'            => t('Manage settings for redirect'),
+            'description'      => t('Configure basic settings for redirect'),
+            'page callback'    => 'drupal_get_form',
+            'page arguments'   => array('ct_redirect_admin_form'),
+            'access arguments' => array('admin-redirect'),
+            'file' => 'ct_redirect.admin.inc'
+        ),
+    );
+}
+
+/**
+ * Implement hook_permission()
+ */
+function ct_redirect_permission() {
+    return array(
+        'admin-redirect' => array(
+            'title'       => t("Redirect URLs"),
+            'description' => t("Allow the user to create redirect urls")
+        ),
+    );
+}
+//function for redirection
 function ct_urlRedirect($path){
-	//arreglo con las url para redirección, el key se redirige al value
+	//arrangement with the urls for redirection, the key is redirected to the value
 	$redirigir=array("urlorigen"=>"urldestino");
 
-	//Se busca si el key está en el array
+	//It looks for if the key is in the array
 	if(array_key_exists($path,$redirigir)){
-		//Se redirecciona al value
-		//printVar($redirigir[$path],'Pa donde va');
+		//It is redirected to the value
 		header ('location: '.$redirigir[$path]);
 	}
 }
 
-//Se ccaptura el evento de la página antes de cargar y se ejecuta la busqueda
+//The event of the page is captured before loading and the search is executed
 function ct_redirect_preprocess_page(&$vars) {
-	//printVar($_SERVER['REQUEST_URI']);
-	Brm_urlRedirect($_SERVER['REQUEST_URI']);
+	ct_urlRedirect($_SERVER['REQUEST_URI']);
 }
