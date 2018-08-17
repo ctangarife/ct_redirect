@@ -40,6 +40,14 @@ function ct_redirect_admin_form_submit($form, $form_state) {
     $path_org = $form_state['values']['ct_path_origin'];
     $path_dest = $form_state['values']['ct_path_dest'];
     
+    //Search the first character for the path and add /
+    
+    if($path_org!='/'){
+        $path_org=base_path().$path_org;
+    }
+    if($path_dest!='/'){
+        $path_dest=base_path().$path_dest;
+    }
     //The data normalize to strolower
    // $path_org=strtolower($path_org);
     //$path_dest=strtolower($path_dest);
