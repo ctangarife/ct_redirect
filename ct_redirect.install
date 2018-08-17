@@ -28,10 +28,11 @@ function ct_redirect_schema() {
                   'length'    => 255,
                   'not null'  => TRUE
               ),
-              'ct_url_dest' => array(
+              'active' => array(
                   'type' => 'varchar',
-                  'length'    => 255,
-                  'not null'  => TRUE
+                  'length' => 1,
+                  'not null' => TRUE,
+                  'default' => 's',
               ),
               'created' => array(
                   'mysql_type' => 'DATETIME',
