@@ -6,7 +6,13 @@ function ct_redirect_menu(){
         'admin/config/search/ct-config-path' => array(
             'title'            => t('Manage settings for redirect'),
             'description'      => t('Configure basic settings for redirect'),
-            'page callback'    => 'drupal_get_form',
+            'page callback'    => 'ct_redirect_save',
+            'access arguments' => array('admin-redirect'),
+            'file' => 'ct_redirect.admin.inc'
+        ),
+         'admin/config/search/ct-config-path/save' => array(
+            'title'            => t('Save url'),
+            'description'      => t('Save url redirect'),
             'page arguments'   => array('ct_redirect_admin_form'),
             'access arguments' => array('admin-redirect'),
             'file' => 'ct_redirect.admin.inc'
